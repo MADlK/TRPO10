@@ -1,0 +1,167 @@
+﻿<Page x:Class="wpf8.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpf8.Pages"
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="MainPage">
+
+
+   
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Style="{StaticResource footer}"   Grid.ColumnSpan="2">
+            <TextBlock Text="{Binding DoctorInfoString}"  Style="{StaticResource TBbase}"/>
+            <Button Content="Выйти" Click="LogoutButton_Click" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <StackPanel >
+                <Label Content="Информация о пациенте" Style="{StaticResource MAINLBL}"/>
+                <StackPanel>
+                    
+                    
+                    <!--PInfo-->
+                    <StackPanel Style="{StaticResource PInfo}">
+                        <TextBlock Text="ID: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.Id}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}">
+                        <TextBlock Text="Фамилия: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.LastName}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}">
+                        <TextBlock Text="Имя: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.Name}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}" >
+                        <TextBlock Text="Отчество: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.MiddleName}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}">
+                        <TextBlock Text="Дата рождения: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.Birthday, StringFormat={}{0:dd.MM.yyyy}}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}">
+                        <TextBlock Text="Телефон: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.PhoneNumber, StringFormat={}{0:### ### ## ##}}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource PInfo}" >
+                        <TextBlock Text="Возраст: " Style="{StaticResource MAINTB}"/>
+                        <TextBlock Text="{Binding SelectedPatient.Birthday, Converter={StaticResource AgeConverter}}" Style="{StaticResource TBbase}"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding SelectedPatient.Soversh, Converter={StaticResource SovershConverter}}" Style="{StaticResource TBbase}"/>
+                </StackPanel>
+                
+                
+                <!--PIB-->
+                <StackPanel Style="{StaticResource PIB}">
+                    <Button Content="Начать прием" 
+                        Click="StartAppointmentButton_Click" />
+                    <Button Content="Изменить информацию" 
+                        Click="EditPatientButton_Click"/>
+                </StackPanel>
+
+
+                <Label Content="История приёмов"  Style="{StaticResource qlabel}"/>
+
+                
+                
+                <!--PHI-->
+                <ListView ItemsSource="{Binding SelectedPatient.AppointmentStories}" Style="{StaticResource PHI}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                
+                                <!--LLV-->
+                                <StackPanel Style="{StaticResource LLW}">
+                                    <TextBlock Text="Дата: " Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding date}" Style="{StaticResource TBbase}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource LLW}">
+                                    <TextBlock Text="Диагноз: " Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding Diagnos}"  Style="{StaticResource TBbase}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource LLW}">
+                                    <TextBlock Text="Рекомендации: " Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding Recomendations}"  Style="{StaticResource TBbase}"/>
+                                </StackPanel>
+                                <StackPanel Style="{StaticResource LLW}">
+                                    <TextBlock Text="Врач ID: " Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding doctor_id}" Style="{StaticResource TBbase}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+
+                <ListView  ItemsSource="{Binding Patients}" 
+                            SelectedItem="{Binding SelectedPatient}"
+                           Style="{StaticResource PHICHILD}"
+                           >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border >
+                                <StackPanel>
+                                    <TextBlock Text="{Binding LastName}" Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding MiddleName}" Style="{StaticResource MAINTB}"/>
+                                    <TextBlock Text="{Binding PhoneNumber, StringFormat={}{}{0:### ### ## ##}}" Style="{StaticResource MAINTB}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="ID: " Style="{StaticResource MAINTB}"/>
+                                        <TextBlock Text="{Binding Id}" Style="{StaticResource MAINTB}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Content="Список пациентов"   Style="{StaticResource qlabel}" />
+                <Button Content="Создать пациента" Click="CreatePatientButton_Click" Style="{StaticResource ADDBTN}" />
+                <Button Content="Удалить пациента" Click="Button_Click" Style="{StaticResource DELBTN}"  />
+
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2" >
+            <StackPanel Style="{StaticResource footer}"   >
+                <StackPanel Style="{StaticResource footer}" >
+                    <TextBlock Text="Докторов: " Style="{StaticResource MAINTB}"/>
+                    <TextBlock Text="{Binding DoctorsCount}"  Style="{StaticResource MAINTB}"/>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource footer}" >
+                    <TextBlock Text="Пациентов: " Style="{StaticResource MAINTB}"/>
+                    <TextBlock Text="{Binding PatientsCount}"  Style="{StaticResource MAINTB}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+    </Grid>
+</Page>
