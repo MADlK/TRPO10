@@ -1,0 +1,25 @@
+﻿<Page x:Class="wpf8.Pages.togglee"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpf8.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="20" d:DesignWidth="100"
+      Title="togglee">
+
+   
+    
+    <Grid>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Center">
+            <MenuItem Header="Меню" >
+                 <MenuItem Header="Настройки">
+                        <MenuItem Header="Обычная" Click="DEF"/>
+
+
+                         <MenuItem Header="Темная" Click="DARK" />
+                 </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Page>
