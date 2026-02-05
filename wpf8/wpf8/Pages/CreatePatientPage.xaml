@@ -46,12 +46,13 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <ItemsControl Foreground="Red"
+            <ItemsControl Foreground="{DynamicResource ValidErr}"
                             FontSize="12"
-                            ItemsSource="{Binding ElementName=PhoneTextBox, Path=
-                            (Validation.Errors)}">
+                          BorderBrush="{DynamicResource ValidBCKG}"
+                            ItemsSource="{Binding ElementName=PhoneTextBox, Path=(Validation.Errors)}">
                 <ItemsControl.ItemTemplate>
-                    <DataTemplate>                        <TextBlock Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

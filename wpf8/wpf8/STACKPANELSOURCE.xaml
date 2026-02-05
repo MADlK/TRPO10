@@ -5,7 +5,7 @@
     <!--APPOINTMENT-->
     <Style TargetType="Button" BasedOn="{StaticResource Default}"/>
     <Style TargetType="StackPanel" x:Key="BASESP">
-        <Setter Property="Background" Value="{DynamicResource BCKG}"/>
+        <Setter Property="Background" Value="{DynamicResource MainPanels}"/>
     </Style>
     <Style TargetType="Grid" >
         <Setter Property="Background" Value="{DynamicResource BCKG}"/>
@@ -32,7 +32,7 @@
     </Style>
 
 
-    <Style TargetType="Label" x:Key="AppointbaseLbl">
+    <Style TargetType="Label" x:Key="AppointbaseLbl" >
         <Setter Property="Margin" Value="0,10,0,0"/>
         
     </Style>
@@ -42,7 +42,7 @@
 
 
     <Style TargetType="TextBlock" x:Key="BASETEXTBLOCK">
-        <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForeGroundMain}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
@@ -53,11 +53,15 @@
         <Setter Property="Height" Value="80"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForeGroundMain}"/>
     </Style>
 
-
     <Style TargetType="ListView" x:Key="BASELV" >
-        <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
+        <Setter Property="Background" Value="{DynamicResource MainPanels}"/>
+    </Style>
+    
+    <Style TargetType="ListView">
+        <Setter Property="Foreground" Value="{DynamicResource ForeGroundMain}"/>
     </Style>
 
     <Style TargetType="ListView" x:Key="APPOINTLV">
@@ -76,7 +80,6 @@
     </Style>
     <Style TargetType="TextBlock" x:Key="BASECREATP" BasedOn="{StaticResource BASETEXTBLOCK}">
         <Setter Property="Margin" Value="0,0,0,10"/>
-        
     </Style>
 
 
@@ -92,15 +95,19 @@
         <Setter Property="FontSize" Value="16"/>
     </Style>
 
-    <!--EDITPATIENPAGE-->
+    
+
+        <!--EDITPATIENPAGE-->
     
     <Style TargetType="TextBlock">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
+        <Setter Property="Background" Value="{DynamicResource Input}"/>
     </Style>
     <Style TargetType="TextBox">
         <Setter Property="Margin" Value="0,0,0,10"/>
         <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
+        <Setter Property="Background" Value="{DynamicResource Input}"/>
     </Style>
     <Style TargetType="TextBox" x:Key="BASETEXTBOX">
         <Setter Property="Margin" Value="0,0,0,10"/>
@@ -124,11 +131,11 @@
         <Setter Property="Orientation" Value="Horizontal"/>
     </Style>
     <Style TargetType="StackPanel" x:Key="LISTPAGESP" BasedOn="{StaticResource qo}">
-        <Setter Property="Background" Value="{DynamicResource BCKG}"/>
+        <Setter Property="Background" Value="{DynamicResource MainPanels}"/>
     </Style>
     <Style x:Key="LVLP" TargetType="ListView">
-        <Setter Property="Background" Value="{DynamicResource BCKG}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
+        <Setter Property="Background" Value="{DynamicResource MainPanels}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForeGroundMain}"/>
     </Style>
     
 
@@ -291,4 +298,8 @@
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Foreground" Value="{DynamicResource ForeGround}"/>
     </Style>
+
+
+    
+
 </ResourceDictionary>

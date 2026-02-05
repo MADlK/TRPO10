@@ -1,0 +1,17 @@
+{
+  "Id": 7899899,
+  "Name": "123",
+  "LastName": "123123",
+  "MiddleName": "123",
+  "Birthday": "2026-01-30T00:00:00",
+  "PhoneNumber": "89653211546",
+  "AppointmentStories": [
+    {
+      "date": "05.02.2026",
+      "doctor_id": 97285,
+      "Diagnos": "jkjladskja;lsgasdg",
+      "Recomendations": "akljasdlkjadsasg"
+    }
+  ],
+  "Soversh": false
+}

@@ -1,10 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="Pressed" Color="Green"/>
-    <SolidColorBrush x:Key="Def" Color="Aqua"/>
-    <SolidColorBrush x:Key="MouseOver" Color="Pink"/>
-    <SolidColorBrush x:Key="BCKG" Color="White"/>
-    <SolidColorBrush x:Key="ForeGround" Color="Black"/>
-    
-    
+    <SolidColorBrush x:Key="Pressed" Color="#3A9AD9"/> <!--обычные-->
+    <SolidColorBrush x:Key="Def" Color="#33B8B1"/> <!--обычные-->
+    <SolidColorBrush x:Key="MouseOver" Color="#3A9AD9"/>    <!--обычные-->
+    <SolidColorBrush x:Key="Del" Color="#E65A4F"/> <!--удаление сброс-->
+
+
+
+    <SolidColorBrush x:Key="BCKG" Color="#F5FAFB"/> <!--фон окна-->
+    <SolidColorBrush x:Key="ForeGround" Color="#2E3B4E"/> <!--Заголовки и подписи-->
+    <SolidColorBrush x:Key="MainPanels" Color="#FFFFFF"/> <!--основные панельки-->
+    <SolidColorBrush x:Key="ForeGroundMain" Color="#444B54"/> <!--Основной текст-->
+    <SolidColorBrush x:Key="ForeGroundSecondary" Color="#6E7A89"/> <!--Вторичный текст/подсказки-->
+
+
+    <SolidColorBrush x:Key="Input" Color="#F0F6F8"/> <!--Поля ввода-->
+
+    <SolidColorBrush x:Key="ValidBCKG" Color="#FFE8E8"/> <!--Фон валидации-->
+    <SolidColorBrush x:Key="ValidErr" Color="#D93025"/> <!--Ошибка валидации-->
 </ResourceDictionary>
